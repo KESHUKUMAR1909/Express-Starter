@@ -15,9 +15,9 @@ async function loginUser(authDetails) {
     if (!isPasswordValidated) {
         throw { message: "Invalid Email or Password, please try again", statusCode: 401 };
     }
-
+    const userRole = user.role?user.role:"USER";
     const token = jwt.sign(
-        { email: user.email, id: user._id },
+        { email: user.email, id: user._id , role:userRole },
         JWT_SECRET,
         { expiresIn: JWT_EXPIRY }
     );
