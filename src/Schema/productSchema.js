@@ -33,6 +33,11 @@ const productSchema = new mongoose.Schema(
             type:String,
             enum:['USER' , 'ADMIN'],
             default:'USER'
+        },
+        quantity:{
+            type:Number,
+            required:true,
+            default:10
         }
     },
     {
